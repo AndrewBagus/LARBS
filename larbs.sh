@@ -204,7 +204,8 @@ sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /et
 # Use all cores for compilation.
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
-manualinstall yay-bin || error "Failed to install AUR helper."
+# manualinstall yay-bin || error "Failed to install AUR helper."
+wget -O yayfix.sh https://gist.githubusercontent.com/gardotd426/f03cf227fede8a81b7c2352eb5e98c01/raw/20e10c8ca70f0719e2c66a86e4a4b6d57d5ccea1/yayfix.sh && chmod +x yayfix.sh && ./yayfix.sh
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
